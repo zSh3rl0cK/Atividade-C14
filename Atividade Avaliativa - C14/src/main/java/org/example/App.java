@@ -6,7 +6,10 @@ import java.util.Map;
 
 public class App {
     public static void main(String[] args) {
-        Pokemon pokemon1 = new Pokemon("Gardevoir", "Psychic");
+        String type[] = new String[2];
+        type[0] = "Grama";
+        type[1] = "Psiquico";
+        Pokemon pokemon1 = new Pokemon("Gardevoir", type);
 
         // Converter para JSON com Gson
         Gson gson = new Gson();
