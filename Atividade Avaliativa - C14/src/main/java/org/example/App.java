@@ -6,14 +6,12 @@ import java.util.Map;
 
 public class App {
     public static void main(String[] args) {
-        String type =  "Grama";
-        Pokemon pokemon1 = new Pokemon("Gardevoir", type);
 
-        // Converter para JSON com Gson
+        Pokemon pokemon1 = new Pokemon("Gardevoir", "Psychic", 250);
+
         Gson gson = new Gson();
-        String json = gson.toJson(pokemon1.mostraInfo());
+        String json = gson.toJson(pokemon1); // converte objeto direto
 
-        // Mostrar saída
         System.out.println("JSON gerado: " + json);
     }
 }
