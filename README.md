@@ -1,6 +1,10 @@
 # Atividade-C14 - Informações Pokémon
 Atividade avaliativa C14
 
+### Alunos: Felipe Silva Loschi & Pedro Henrique Ribeiro Dias  
+### Matrículas: 601 e 529  
+### Cursos: GES e GES  
+
 ## 1. Descrição
 
 O projeto se trata de uma espécie de chat bot em que o usuário poderá enviar nomes de Pokemons, questionando informações sobre os mesmos e,
