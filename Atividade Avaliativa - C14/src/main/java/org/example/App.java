@@ -6,9 +6,7 @@ import java.util.Map;
 
 public class App {
     public static void main(String[] args) {
-        String type[] = new String[2];
-        type[0] = "Grama";
-        type[1] = "Psiquico";
+        String type =  "Grama";
         Pokemon pokemon1 = new Pokemon("Gardevoir", type);
 
         // Converter para JSON com Gson
@@ -19,9 +17,3 @@ public class App {
         System.out.println("JSON gerado: " + json);
     }
 }
-
-
-
-
-
-
