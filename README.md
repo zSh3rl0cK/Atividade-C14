@@ -1,9 +1,10 @@
 # Atividade-C14 - Informações Pokémon
-Atividade avaliativa C14
 
 ### Alunos: Felipe Silva Loschi & Pedro Henrique Ribeiro Dias  
 ### Matrículas: 601 e 529  
 ### Cursos: GES e GES  
+
+Atividade avaliativa C14
 
 ## 1. Descrição
 
