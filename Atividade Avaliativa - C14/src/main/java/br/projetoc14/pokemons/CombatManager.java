@@ -1,11 +1,8 @@
-package org.example;
-
-
-import java.util.ArrayList;
+package br.projetoc14.pokemons;
+import br.projetoc14.trainers.Trainer;
 import java.util.Random;
 import java.util.Scanner;
-
-import static main.br.inatel.projetojava.Model.sistema.front.Cores.*;
+import static br.projetoc14.front.Cores.*;
 
 public abstract class CombatManager {
 
@@ -31,7 +28,7 @@ public abstract class CombatManager {
 
             // Verifica se o oponente foi derrotado
             if (ativoOponente.getHp() <= 0) {
-                System.out.println(ANSI_GREEN + ativoOponente.getNome() + " desmaiou!" + ANSI_RESET);
+                System.out.println(ANSI_GREEN + ativoOponente.getName() + " desmaiou!" + ANSI_RESET);
                 ativoOponente = oponente.escolherProximoPokemon();
                 if (ativoOponente == null) {
                     System.out.println(ANSI_GREEN + "Você venceu a batalha!" + ANSI_RESET);
@@ -75,7 +72,7 @@ public abstract class CombatManager {
     }
 
     private static void executarTurnoOponente(Pokemon atacante, Pokemon defensor) {
-        System.out.println(ANSI_PURPLE + "\nÉ a vez de " + atacante.getNome() + " (oponente)!" + ANSI_RESET);
+        System.out.println(ANSI_PURPLE + "\nÉ a vez de " + atacante.getName() + " (oponente)!" + ANSI_RESET);
         boolean usarHabilidade = random.nextBoolean();
 
         atacante.atacar(defensor, usarHabilidade);

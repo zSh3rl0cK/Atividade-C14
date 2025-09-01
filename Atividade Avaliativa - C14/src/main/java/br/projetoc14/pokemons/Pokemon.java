@@ -1,4 +1,4 @@
-package org.example;
+package br.projetoc14.pokemons;
 
 public class Pokemon {
 
@@ -10,6 +10,9 @@ public class Pokemon {
         this.name = name;
         this.type = type;
         this.hp = hp;
+    }
+
+    public void atacar(Pokemon defensor, boolean usarHabilidade) {
     }
 
     public String mostraInfo(){
