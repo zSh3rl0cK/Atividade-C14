@@ -1,10 +1,8 @@
-package org.example;
+package br.projetoc14.pokemons;
+import br.projetoc14.trainers.Trainer;
 
-
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-
 import static main.br.inatel.projetojava.Model.sistema.front.Cores.*;
 
 public abstract class CombatManager {
@@ -75,7 +73,7 @@ public abstract class CombatManager {
     }
 
     private static void executarTurnoOponente(Pokemon atacante, Pokemon defensor) {
-        System.out.println(ANSI_PURPLE + "\nÉ a vez de " + atacante.getNome() + " (oponente)!" + ANSI_RESET);
+        System.out.println(ANSI_PURPLE + "\nÉ a vez de " + atacante.getName() + " (oponente)!" + ANSI_RESET);
         boolean usarHabilidade = random.nextBoolean();
 
         atacante.atacar(defensor, usarHabilidade);
