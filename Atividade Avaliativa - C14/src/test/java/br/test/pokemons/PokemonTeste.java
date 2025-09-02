@@ -6,6 +6,10 @@ import static org.junit.Assert.*;
 
 public class PokemonTeste {
 
+    // -----------------------------
+    // Testes POSITIVOS
+    // -----------------------------
+
     @Test
     public void testCriacaoPokemon() {
         Pokemon p = new Pokemon("Pikachu", "Elétrico", 100);
@@ -20,6 +24,10 @@ public class PokemonTeste {
         Pokemon p = new Pokemon("Bulbasaur", "Grama", 90);
         assertEquals("Bulbasaur Grama 90", p.mostraInfo());
     }
+
+    // -----------------------------
+    // Testes NEGATIVOS
+    // -----------------------------
 
     @Test
     public void testHpNaoNegativo() {

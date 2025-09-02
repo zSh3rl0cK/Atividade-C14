@@ -28,7 +28,7 @@ public class TrainerTest {
         assertNull("Sem Pokémon atribuído, deveria retornar null",
                 trainer.escolherPokemonInicial());
     }
-    
+
     // Testa se escolherProximoPokemon retorna null quando não há Pokémon
     @Test
     public void escolherProximoPokemonNullTest() {

@@ -8,7 +8,7 @@ public class Pokemon {
     private String type;
     private int hp;
 
-    public Pokemon(String name, String type) {
+    public Pokemon(String name, String type,  int hp) {
         this.name = name;
         this.type = type;
         System.out.println("Digite o HP do seu pokemon: ");
