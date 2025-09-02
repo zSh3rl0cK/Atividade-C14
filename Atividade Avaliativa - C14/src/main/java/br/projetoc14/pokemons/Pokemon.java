@@ -1,15 +1,18 @@
 package br.projetoc14.pokemons;
 
+import static br.projetoc14.Utils.Util.lerOpcaoSegura;
+
 public class Pokemon {
 
     private String name;
     private String type;
     private int hp;
 
-    public Pokemon(String name, String type,  int hp) {
+    public Pokemon(String name, String type) {
         this.name = name;
         this.type = type;
-        this.hp = hp;
+        System.out.println("Digite o HP do seu pokemon: ");
+        this.hp = lerOpcaoSegura();
     }
 
     public void atacar(Pokemon defensor, boolean usarHabilidade) {
