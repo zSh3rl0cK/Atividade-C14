@@ -77,19 +77,41 @@ public class PokemonTeste {
     }
 
     @Test
-    public void testMostraInfo(){
+    public void caseInsensitiveTest(){
+        try {
+            PokeApiClient client = new PokeApiClient();
+            Pokemon p1 = client.getPokemon("Pikachu");
+            Pokemon p2 = client.getPokemon("pikachu");
+            assertEquals(p1, p2);
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
+    public void pokemonByIdTest(){
+        try {
+            PokeApiClient client = new PokeApiClient();
+            Pokemon Mew = client.getPokemon("151");
+            assertEquals(Mew.getName(), "Mew");
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
+    public void testMostraInfoTest(){
         try {
             PokeApiClient client = new PokeApiClient();
             Pokemon pokemon = client.getPokemon("Gardevoir");
+            String info = pokemon.mostraInfo();
 
-            String infos = pokemon.mostraInfo();
-
-            assertTrue(infos.contains("Psychic"));
-            assertTrue(infos.contains("Fairy"));
-            assertTrue(infos.contains("Gardevoir"));
-            assertTrue(infos.contains("68"));
-
-
+            assertTrue(info.contains("Gardevoir"));
+            assertTrue(info.contains("Psychic"));
+            assertTrue(info.contains("Fairy"));
+            assertTrue(info.contains("68"));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -119,5 +141,8 @@ public class PokemonTeste {
         });
 
         assertTrue(exception.getMessage().contains("Erro ao buscar Pokémon"));
+
+
     }
+
 }
