@@ -1,5 +1,6 @@
 package br.test.TrainerTest;
 
+import br.projetoc14.api.PokeApiClient;
 import br.projetoc14.pokemons.Pokemon;
 import br.projetoc14.trainers.Trainer;
 import org.junit.Test;
@@ -25,8 +26,7 @@ public class TrainerTest {
     @Test
     public void escolherPokemonInicialNullTest() {
         Trainer trainer = new Trainer();
-        assertNull("Sem Pokémon atribuído, deveria retornar null",
-                trainer.escolherPokemonInicial());
+        assertNull("Sem Pokémon atribuído, deveria retornar null", trainer.escolherPokemonInicial());
     }
 
     // Testa se escolherProximoPokemon retorna null quando não há Pokémon
@@ -49,6 +49,19 @@ public class TrainerTest {
         assertEquals("Ash Ketchum", trainer.getName());
     }
 
-    // Testa se o Pokémon é corretamente atribuído e recuperado
+    // Testa se o Pokémon é corretamente atribuído
 
+    @Test
+    public void getPokemonTest() {
+        try {
+            Trainer trainer = new Trainer();
+            PokeApiClient client = new PokeApiClient();
+            Pokemon pokemon = client.getPokemon("Ghastly");
+            trainer.setPokemons(pokemon);
+
+            assertEquals(Pokemon.class, trainer.getPokemons().getClass());
+        }catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
