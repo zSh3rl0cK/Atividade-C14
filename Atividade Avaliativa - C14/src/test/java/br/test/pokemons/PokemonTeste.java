@@ -24,17 +24,59 @@ public class PokemonTeste {
     }
 
     @Test
-    public void HpPikachuTest(){
+    public void getPikachuTest(){
         try {
             PokeApiClient client = new PokeApiClient();
-
             Pokemon pikachu = client.getPokemon("pikachu");
-            assertEquals(32, pikachu.getHp());
+
+            assertNotNull(pikachu);
+            assertEquals("electric", pikachu.getFirstType());
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
+
+    @Test
+    public void namePikachuTest(){
+        try {
+            PokeApiClient client = new PokeApiClient();
+            Pokemon pikachu = client.getPokemon("pikachu");
+
+            assertEquals("pikachu", pikachu.getName());
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
+    public void hpPikachuTest(){
+        try {
+            PokeApiClient client = new PokeApiClient();
+            Pokemon pikachu = client.getPokemon("pikachu");
+
+            assertEquals(35, pikachu.getHp()); // valor oficial na PokéAPI
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
+    public void tipoPikachuTest(){
+        try {
+            PokeApiClient client = new PokeApiClient();
+            Pokemon pikachu = client.getPokemon("pikachu");
+
+            assertEquals("electric", pikachu.getFirstType());
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
 
     // -----------------------------
     // Testes NEGATIVOS
@@ -53,14 +95,13 @@ public class PokemonTeste {
     }
 
     @Test
-    public void tipoPikachuTest(){
-        try {
-            PokeApiClient client = new PokeApiClient();
-            Pokemon pikachu = client.getPokemon("pikachu");
-            assertEquals("fire", pikachu.getFirstType());
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+    public void testPokemonInexistente() {
+        PokeApiClient client = new PokeApiClient();
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            client.getPokemon("xyzpokemon");
+        });
+
+        assertTrue(exception.getMessage().contains("Erro ao buscar Pokémon"));
     }
+
 }
