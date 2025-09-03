@@ -1,49 +1,64 @@
 package br.projetoc14.pokemons;
 
-import static br.projetoc14.Utils.Util.lerOpcaoSegura;
+import java.util.List;
 
 public class Pokemon {
-
     private String name;
-    private String type;
-    private int hp;
+    private List<TypeSlot> types;
+    private List<StatInfo> stats;
 
-    public Pokemon(String name, String type,  int hp) {
-        this.name = name;
-        this.type = type;
-        System.out.println("Digite o HP do seu pokemon: ");
-        this.hp = lerOpcaoSegura();
+    // --- Classes internas para mapear os objetos aninhados da API ---
+    public static class TypeSlot {
+        private int slot;
+        private Type type;
+
+        public Type getType() { return type; }
     }
 
-    public void atacar(Pokemon defensor, boolean usarHabilidade) {
+    public static class Type {
+        private String name;
+
+        public String getName() { return name; }
     }
 
-    public String mostraInfo(){
-        return name + " " + type + " " + hp;
+    public static class StatInfo {
+        private int base_stat;
+        private Stat stat;
+
+        public int getBase_stat() { return base_stat; }
+        public Stat getStat() { return stat; }
     }
 
-    // Getters e Setters
+    public static class Stat {
+        private String name;
+
+        public String getName() { return name; }
+    }
+
+    // --- Getters úteis ---
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public String getFirstType() {
+        if (types != null && !types.isEmpty()) {
+            return types.get(0).getType().getName();
+        }
+        return "desconhecido";
     }
 
     public int getHp() {
-        return hp;
+        if (stats != null) {
+            for (StatInfo s : stats) {
+                if (s.getStat().getName().equals("hp")) {
+                    return s.getBase_stat();
+                }
+            }
+        }
+        return -1; // caso não ache
     }
 
-    public void setHp(int hp) {
-        this.hp = hp;
+    public String mostraInfo() {
+        return name + " (" + getFirstType() + ") HP: " + getHp();
     }
 }
