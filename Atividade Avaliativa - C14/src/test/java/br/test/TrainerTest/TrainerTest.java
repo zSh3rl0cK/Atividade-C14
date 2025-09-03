@@ -11,7 +11,15 @@ public class TrainerTest {
     // -----------------------------
     // Testes NEGATIVOS
     // -----------------------------
+    public void pokemonTrainerHpTest(){
+        Trainer trainer = new Trainer("Pokemon Trainer");
+        Trainer trainer2 = new Trainer("Pokemon Trainer");
 
+        trainer.escolherPokemonInicial("Ghastly");
+        trainer2.escolherPokemonInicial("Gardevoir");
+
+        assertNotEquals(trainer.getPokemons().getHp(), trainer2.getPokemons().getHp());
+    }
 
 
 

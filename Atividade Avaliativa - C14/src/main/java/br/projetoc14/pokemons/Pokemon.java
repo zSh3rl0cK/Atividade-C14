@@ -7,6 +7,10 @@ public class Pokemon {
     private List<TypeSlot> types;
     private List<StatInfo> stats;
 
+    public String mostraInfo() {
+        return name + " (" + getFirstType() + ") HP: " + getHp();
+    }
+
     // --- Classes internas para mapear os objetos aninhados da API ---
     public static class TypeSlot {
         private int slot;
@@ -58,7 +62,6 @@ public class Pokemon {
         return -1; // caso não ache
     }
 
-    public String mostraInfo() {
-        return name + " (" + getFirstType() + ") HP: " + getHp();
+    public void setHp(int hp) {
     }
 }

@@ -141,8 +141,16 @@ public class PokemonTeste {
         });
 
         assertTrue(exception.getMessage().contains("Erro ao buscar Pokémon"));
-
-
     }
 
+    @Test
+    public void testPokemonVidaNegativo() {
+        try {
+            PokeApiClient client = new PokeApiClient();
+            Pokemon pokemon = client.getPokemon("Mew");
+            assertFalse(pokemon.getHp() < 0);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
