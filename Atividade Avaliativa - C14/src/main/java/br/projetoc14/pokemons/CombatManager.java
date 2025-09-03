@@ -5,7 +5,7 @@ import java.util.Scanner;
 import static br.projetoc14.front.Cores.*;
 
 public abstract class CombatManager {
-
+    /*
     static Random random = new Random();
     static Scanner scanner = new Scanner(System.in);
 
@@ -76,5 +76,5 @@ public abstract class CombatManager {
         boolean usarHabilidade = random.nextBoolean();
 
         atacante.atacar(defensor, usarHabilidade);
-    }
+    }*/
 }

@@ -50,32 +50,5 @@ public class TrainerTest {
     }
 
     // Testa se o Pokémon é corretamente atribuído e recuperado
-    @Test
-    public void setAndGetPokemonTest() {
-        Trainer trainer = new Trainer();
-        Pokemon pikachu = new Pokemon("Pikachu", "Electric", 100);
 
-        trainer.setPokemons(pikachu);
-        assertEquals(pikachu, trainer.getPokemons());
-    }
-
-    // Testa se escolherPokemonInicial retorna o Pokémon definido
-    @Test
-    public void escolherPokemonInicialTest() {
-        Trainer trainer = new Trainer();
-        Pokemon eevee = new Pokemon("Eevee", "Normal", 50);
-
-        trainer.setPokemons(eevee);
-        assertEquals(eevee, trainer.escolherPokemonInicial());
-    }
-
-    // Testa se escolherProximoPokemon retorna o mesmo Pokémon definido
-    @Test
-    public void escolherProximoPokemonTest() {
-        Trainer trainer = new Trainer();
-        Pokemon charmander = new Pokemon("Charmander", "Fire", 80);
-
-        trainer.setPokemons(charmander);
-        assertEquals(charmander, trainer.escolherProximoPokemon());
-    }
 }

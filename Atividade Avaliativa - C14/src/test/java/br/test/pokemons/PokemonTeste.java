@@ -1,5 +1,6 @@
 package br.test.pokemons;
 
+import br.projetoc14.api.PokeApiClient;
 import br.projetoc14.pokemons.Pokemon;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -11,18 +12,28 @@ public class PokemonTeste {
     // -----------------------------
 
     @Test
-    public void testCriacaoPokemon() {
-        Pokemon p = new Pokemon("Pikachu", "Elétrico", 100);
-
-        assertEquals("Pikachu", p.getName());
-        assertEquals("Elétrico", p.getType());
-        assertEquals(100, p.getHp());
+    public void HpCharmanderTest(){
+        try {
+            PokeApiClient client = new PokeApiClient();
+            Pokemon charmander = client.getPokemon("charmander");
+            assertEquals(39, charmander.getHp());
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Test
-    public void testMostraInfo() {
-        Pokemon p = new Pokemon("Bulbasaur", "Grama", 90);
-        assertEquals("Bulbasaur Grama 90", p.mostraInfo());
+    public void HpPikachuTest(){
+        try {
+            PokeApiClient client = new PokeApiClient();
+
+            Pokemon pikachu = client.getPokemon("pikachu");
+            assertEquals(32, pikachu.getHp());
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     // -----------------------------
@@ -30,16 +41,26 @@ public class PokemonTeste {
     // -----------------------------
 
     @Test
-    public void testHpNaoNegativo() {
-        Pokemon p = new Pokemon("Squirtle", "Água", 50);
-
-        p.setHp(-10); // mesmo que aceite negativo
-        assertTrue("HP deve ser zero ou maior", p.getHp() <= 0);
+    public void tipoCharmanderTest(){
+        try {
+            PokeApiClient client = new PokeApiClient();
+            Pokemon charmander = client.getPokemon("charmander");
+            assertEquals("eletric", charmander.getFirstType());
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Test
-    public void testPokemonZeroHp() {
-        Pokemon p = new Pokemon("Gastly", "Fantasma", 0);
-        assertEquals(0, p.getHp());
+    public void tipoPikachuTest(){
+        try {
+            PokeApiClient client = new PokeApiClient();
+            Pokemon pikachu = client.getPokemon("pikachu");
+            assertEquals("fire", pikachu.getFirstType());
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

@@ -1,20 +1,21 @@
 package br.projetoc14;
 
+import br.projetoc14.api.PokeApiClient;
 import br.projetoc14.pokemons.Pokemon;
 import com.google.gson.Gson;
 
 import java.util.Scanner;
 
-import static br.projetoc14.Utils.Util.lerOpcaoSegura;
+import static br.projetoc14.Utils.Util.lerHPSeguro;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        PokeApiClient client = new PokeApiClient();
 
-        Pokemon pokemon1 = new Pokemon("Gardevoir", "Psychic");
+        Pokemon pikachu = client.getPokemon("pikachu");
+        System.out.println(pikachu.mostraInfo());
 
-        Gson gson = new Gson();
-        String json = gson.toJson(pokemon1); // converte objeto direto
-
-        System.out.println("JSON gerado: " + json);
+        Pokemon charmander = client.getPokemon("charmander");
+        System.out.println(charmander.mostraInfo());
     }
 }
