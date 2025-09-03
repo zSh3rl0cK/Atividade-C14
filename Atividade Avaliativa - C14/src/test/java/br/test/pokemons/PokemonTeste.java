@@ -101,6 +101,21 @@ public class PokemonTeste {
         }
     }
 
+    @Test
+    public void testMostraInfoTest(){
+        try {
+            PokeApiClient client = new PokeApiClient();
+            Pokemon pokemon = client.getPokemon("Gardevoir");
+            String info = pokemon.mostraInfo();
+
+            assertTrue(info.contains("Gardevoir"));
+            assertTrue(info.contains("Psychic"));
+            assertTrue(info.contains("Fairy"));
+            assertTrue(info.contains("68"));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     // -----------------------------
     // Testes NEGATIVOS
@@ -126,8 +141,16 @@ public class PokemonTeste {
         });
 
         assertTrue(exception.getMessage().contains("Erro ao buscar Pokémon"));
-
-
     }
 
+    @Test
+    public void testPokemonVidaNegativo() {
+        try {
+            PokeApiClient client = new PokeApiClient();
+            Pokemon pokemon = client.getPokemon("Mew");
+            assertFalse(pokemon.getHp() < 0);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
