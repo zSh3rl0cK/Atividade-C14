@@ -76,6 +76,30 @@ public class PokemonTeste {
         }
     }
 
+    @Test
+    public void caseInsensitiveTest(){
+        try {
+            PokeApiClient client = new PokeApiClient();
+            Pokemon p1 = client.getPokemon("Pikachu");
+            Pokemon p2 = client.getPokemon("pikachu");
+            assertEquals(p1, p2);
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
+    public void pokemonByIdTest(){
+        try {
+            PokeApiClient client = new PokeApiClient();
+            Pokemon Mew = client.getPokemon("151");
+            assertEquals(Mew.getName(), "Mew");
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
 
     // -----------------------------
@@ -102,6 +126,8 @@ public class PokemonTeste {
         });
 
         assertTrue(exception.getMessage().contains("Erro ao buscar Pokémon"));
+
+
     }
 
 }
