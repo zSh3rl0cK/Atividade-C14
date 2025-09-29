@@ -22,7 +22,7 @@ jobs:
     
     - name: Build with Maven
       run: |
-        cd Atividade Avaliativa - C14
+        cd "Atividade Avaliativa - C14"
         mvn clean install
     
     - name: Upload build artifacts
@@ -47,5 +47,5 @@ jobs:
     
     - name: Run tests
       run: |
-        cd Atividade Avaliativa - C14
+        cd "Atividade Avaliativa - C14"
         mvn clean test site
