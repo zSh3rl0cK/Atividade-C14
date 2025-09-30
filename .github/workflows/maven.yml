@@ -71,5 +71,5 @@ jobs:
 
     - name: send-email
       run: |
-        cd scripts
-        python send-email.py
+        cd send-email.sh
+        sh send-email.sh
