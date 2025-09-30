@@ -49,3 +49,27 @@ jobs:
       run: |
         cd AtividadeAvaliativa-C14
         mvn clean test site
+        
+    - name: Upload test reports
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-report
+        path: AtividadeAvaliativa-C14/target/site/
+
+  notification:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: send-email
+      run: |
+        cd scripts
+        python send-email.py
