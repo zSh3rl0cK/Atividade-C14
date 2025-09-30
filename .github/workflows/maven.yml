@@ -71,5 +71,4 @@ jobs:
 
     - name: send-email
       run: |
-        cd AtividadeAvaliativa-C14/script/send-email.sh
-        sh send-email.sh
+        sh AtividadeAvaliativa-C14/script/send-email.sh
